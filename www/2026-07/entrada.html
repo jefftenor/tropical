@@ -1,401 +1,618 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Extrato de Entradas</title>
 
+
     <style>
-      /* ==================================================
+
+        /* ==================================================
            RESET
         ================================================== */
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      /* ==================================================
+
+        /* ==================================================
            BODY
         ================================================== */
 
-      body {
-        background: #eeeeee;
+        body {
 
-        font-family: Arial, Helvetica, sans-serif;
+       
 
-        display: flex;
+            background: #eeeeee;
 
-        justify-content: center;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-        align-items: center;
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+       
+        }
 
 
-      }
-
-      /* ==================================================
+        /* ==================================================
            CONTAINER PRINCIPAL
         ================================================== */
 
-      .container {
-        width: 100%;
+        .container {
+
+            width: 100%;
 
 
 
-        display: flex;
+            display: flex;
 
-        flex-direction: column;
+            flex-direction: column;
 
-        gap: 25px;
-      }
+            gap: 25px;
+        }
 
-      /* ==================================================
+
+        /* ==================================================
            TÍTULO
         ================================================== */
 
-      .titulo {
-        background: #000000;
+        .titulo {
 
-        color: #ffffff;
+            background: #000000;
 
-        padding: 20px;
+            color: #ffffff;
 
-        text-align: center;
+            padding: 20px;
 
-        border-radius: 10px;
+            text-align: center;
 
-        border: 3px solid #333333;
+            border-radius: 10px;
 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-      }
+            border:
+                3px solid #333333;
 
-      .titulo h1 {
-        font-size: 28px;
+            box-shadow:
+                0 5px 15px
+                rgba(0, 0, 0, 0.25);
+        }
 
-        margin-bottom: 8px;
-      }
 
-      .titulo p {
-        font-size: 14px;
+        .titulo h1 {
 
-        color: #cccccc;
-      }
+            font-size: 28px;
 
-      /* ==================================================
+            margin-bottom: 8px;
+        }
+
+
+        .titulo p {
+
+            font-size: 14px;
+
+            color: #cccccc;
+        }
+
+
+        /* ==================================================
            GRID DE INFORMAÇÕES
         ================================================== */
 
-      .informacoes {
-        display: grid;
+        .informacoes {
 
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+            display: grid;
 
-        gap: 20px;
-      }
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
 
-      .card {
-        background: #ffffff;
+            gap: 20px;
+        }
 
-        border: 2px solid #333333;
 
-        border-radius: 8px;
+        .card {
 
-        padding: 20px;
+            background: #ffffff;
 
-        text-align: center;
-      }
+            border:
+                2px solid #333333;
 
-      .card span {
-        display: block;
+            border-radius: 8px;
 
-        color: #555555;
+            padding: 20px;
 
-        font-size: 14px;
+            text-align: center;
+        }
 
-        margin-bottom: 8px;
-      }
 
-      .card strong {
-        color: #000000;
+        .card span {
 
-        font-size: 22px;
-      }
+            display: block;
 
-      /* ==================================================
+            color: #555555;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .card strong {
+
+            color: #000000;
+
+            font-size: 22px;
+        }
+
+
+        /* ==================================================
            ÁREA DA TABELA
         ================================================== */
 
-      .tabela-container {
-        width: 100%;
+        .tabela-container {
 
-        overflow-x: auto;
+            width: 100%;
 
-        background: #ffffff;
+            overflow-x: auto;
 
-        padding: 15px;
+            background: #ffffff;
 
-        border: 3px solid #222222;
+            padding: 15px;
 
-        border-radius: 10px;
+            border:
+                3px solid #222222;
 
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
+            border-radius: 10px;
 
-      /* ==================================================
+            box-shadow:
+                0 5px 15px
+                rgba(0, 0, 0, 0.20);
+        }
+
+
+        /* ==================================================
            TABELA
         ================================================== */
 
-      table {
-        width: 100%;
+        table {
 
-        border-collapse: collapse;
+            width: 100%;
 
-        background: #ffffff;
+            border-collapse: collapse;
 
-        border: 2px solid #000000;
-      }
+            background: #ffffff;
 
-      /* ==================================================
+            border:
+                2px solid #000000;
+        }
+
+
+        /* ==================================================
            CABEÇALHO
         ================================================== */
 
-      thead th {
-        background: #000000;
+        thead th {
 
-        color: #ffffff;
+            background: #000000;
 
-        padding: 15px;
+            color: #ffffff;
 
-        text-align: left;
+            padding: 15px;
 
-        font-size: 15px;
+            text-align: left;
 
-        border: 1px solid #555555;
-      }
+            font-size: 15px;
 
-      /* ==================================================
+            border:
+                1px solid #555555;
+        }
+
+
+        /* ==================================================
            LINHAS
         ================================================== */
 
-      tbody tr {
-        background: #ffffff;
+        tbody tr {
 
-        transition: background 0.2s ease;
-      }
+            background: #ffffff;
 
-      /* Linhas alternadas */
+            transition:
+                background 0.2s ease;
+        }
 
-      tbody tr:nth-child(even) {
-        background: #eeeeee;
-      }
 
-      /* Efeito ao passar o mouse */
+        /* Linhas alternadas */
 
-      tbody tr:hover {
-        background: #cccccc;
-      }
+        tbody tr:nth-child(even) {
 
-      /* ==================================================
+            background: #eeeeee;
+        }
+
+
+        /* Efeito ao passar o mouse */
+
+        tbody tr:hover {
+
+            background: #cccccc;
+        }
+
+
+        /* ==================================================
            CÉLULAS
         ================================================== */
 
-      tbody td {
-        padding: 13px;
+        tbody td {
 
-        /*
+            padding: 13px;
+
+            /*
              * Texto branco conforme solicitado
              */
 
-        color: #000000;
+            color: #000000;
 
-        border: 1px solid #999999;
-      }
+            border:
+                1px solid #999999;
+        }
 
-      /* ==================================================
+
+        /* ==================================================
            VALOR
         ================================================== */
 
-      td.valor {
-        text-align: right;
+        td.valor {
 
-        font-weight: bold;
+            text-align: right;
 
-        white-space: nowrap;
-      }
+            font-weight: bold;
 
-      /* ==================================================
+            white-space: nowrap;
+        }
+
+
+        /* ==================================================
            LINHA TOTAL
         ================================================== */
 
-      tfoot tr {
-        background: #000000;
-      }
+        tfoot tr {
 
-      tfoot td {
-        padding: 16px;
+            background: #000000;
+        }
 
-        color: #ffffff;
 
-        font-weight: bold;
+        tfoot td {
 
-        border: 1px solid #555555;
-      }
+            padding: 16px;
 
-      tfoot td:last-child {
-        text-align: right;
+            color: #ffffff;
 
-        font-size: 18px;
-      }
+            font-weight: bold;
 
-      /* ==================================================
+            border:
+                1px solid #555555;
+        }
+
+
+        tfoot td:last-child {
+
+            text-align: right;
+
+            font-size: 18px;
+        }
+
+
+        /* ==================================================
            RESPONSIVIDADE
         ================================================== */
 
-      @media (max-width: 700px) {
-        body {
-          padding: 15px;
+        @media (max-width: 700px) {
 
-          align-items: flex-start;
+            body {
+
+                padding: 15px;
+
+                align-items: flex-start;
+            }
+
+
+            .informacoes {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .titulo h1 {
+
+                font-size: 22px;
+            }
+
+
+            table {
+
+                min-width: 650px;
+            }
         }
 
-        .informacoes {
-          grid-template-columns: 1fr;
-        }
-
-        .titulo h1 {
-          font-size: 22px;
-        }
-
-        table {
-          min-width: 650px;
-        }
-      }
     </style>
-  </head>
 
-  <body>
+</head>
+
+
+<body>
+
+
     <main class="container">
-      <!-- ================================================
+
+
+        <!-- ================================================
              TÍTULO
         ================================================= -->
 
-      <header class="titulo">
-        <h1>
-          Extrato de Entradas
+        <header class="titulo">
 
-          <hr />
-          Período de 1 a 31 do mês julho de 2026
-        </h1>
-      </header>
+            <h1>
+                Extrato de Entradas
 
-      <!-- ================================================
+
+ 
+                
+                               <hr>
+                Período de 1 a 31 do mês julho de 2026 
+  
+            </h1>
+        </header>
+
+
+        <!-- ================================================
              INFORMAÇÕES
         ================================================= -->
 
-      <section class="informacoes">
-        <div class="card">
-          <span> Quantidade de entradas </span>
+        <section class="informacoes">
 
-          <strong> 5 </strong>
-        </div>
+            <div class="card">
 
-        <div class="card">
-          <span> Total das entradas </span>
+                <span>
+                    Quantidade de entradas
+                </span>
 
-          <strong> R$ 6.724,52 </strong>
-        </div>
-      </section>
+                <strong>
+                    5
+                </strong>
 
-      <!-- ================================================
+            </div>
+
+
+            <div class="card">
+
+                <span>
+                    Total das entradas
+                </span>
+
+                <strong>
+                    R$ 6.724,52
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================
              TABELA
         ================================================= -->
 
-      <section class="tabela-container">
-        <table>
-          <thead>
+        <section class="tabela-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+
+                            Nº
+
+                        </th>                    
+
+                        <th>
+                            Data
+                        </th>
+
+                        <th>
+                            Descrição
+                        </th>
+
+                        <th>
+                            Valor
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    
             <tr>
-              <th>Data</th>
 
-              <th>Descrição</th>
+                <td>
 
-              <th>Valor</th>
+                    1
+
+                </td>
+                <td>07/07/2026</td>
+
+                <td>
+                    LIQ.COBRANCA SIMPLES COB000002
+                </td>
+
+                <td class="valor">
+                    R$ 1.447,57
+                </td>
             </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>07/07/2026</td>
-
-              <td>LIQ.COBRANCA SIMPLES COB000002</td>
-
-              <td class="valor">R$ 1.447,57</td>
-            </tr>
-
-            <tr>
-              <td>09/07/2026</td>
-
-              <td>LIQ.COBRANCA SIMPLES COB000001</td>
-
-              <td class="valor">R$ 838,20</td>
-            </tr>
+            
 
             <tr>
-              <td>10/07/2026</td>
 
-              <td>LIQ.COBRANCA SIMPLES COB000001</td>
+                <td>
 
-              <td class="valor">R$ 730,83</td>
+                    2
+
+                </td>
+                <td>09/07/2026</td>
+
+                <td>
+                    LIQ.COBRANCA SIMPLES COB000001
+                </td>
+
+                <td class="valor">
+                    R$ 838,20
+                </td>
             </tr>
+            
 
             <tr>
-              <td>13/07/2026</td>
 
-              <td>LIQ.COBRANCA SIMPLES COB000005</td>
+                <td>
 
-              <td class="valor">R$ 3.501,92</td>
+                    3
+
+                </td>
+                <td>10/07/2026</td>
+
+                <td>
+                    LIQ.COBRANCA SIMPLES COB000001
+                </td>
+
+                <td class="valor">
+                    R$ 730,83
+                </td>
             </tr>
+            
 
             <tr>
-              <td>13/07/2026</td>
 
-              <td>RECEBIMENTO PIX 87933446949 MARCILENE MONTANHA L PIX_CRED</td>
+                <td>
 
-              <td class="valor">R$ 206,00</td>
+                    4
+
+                </td>
+                <td>13/07/2026</td>
+
+                <td>
+                    LIQ.COBRANCA SIMPLES COB000005
+                </td>
+
+                <td class="valor">
+                    R$ 3.501,92
+                </td>
             </tr>
-          </tbody>
+            
 
-          <!-- ========================================
+            <tr>
+
+                <td>
+
+                    5
+
+                </td>
+                <td>13/07/2026</td>
+
+                <td>
+                    RECEBIMENTO PIX 87933446949 MARCILENE MONTANHA L PIX_CRED
+                </td>
+
+                <td class="valor">
+                    R$ 206,00
+                </td>
+            </tr>
+            
+
+                </tbody>
+
+
+                <!-- ========================================
                      TOTAL
                 ========================================= -->
 
-          <tfoot>
-            <tr>
-              <td colspan="2">TOTAL DAS ENTRADAS</td>
+                <tfoot>
 
-              <td>R$ 6.724,52</td>
-            </tr>
-          </tfoot>
-        </table>
-      </section>
+                    <tr>
+
+                        <td colspan="3">
+                            TOTAL DAS ENTRADAS
+                        </td>
+
+                        <td>
+                            R$ 6.724,52
+                        </td>
+
+                    </tr>
+
+                </tfoot>
+
+            </table>
+
+        </section>
+
+
     </main>
+
 
     <!-- ====================================================
          JAVASCRIPT PURO
     ===================================================== -->
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tabela = document.querySelector("table");
 
-        const linhas = tabela.querySelectorAll("tbody tr");
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
-        console.log("Tabela carregada com sucesso.");
+                const tabela =
+                    document.querySelector("table");
 
-        console.log("Quantidade de registros:", linhas.length);
-      });
+                const linhas =
+                    tabela.querySelectorAll(
+                        "tbody tr"
+                    );
+
+                console.log(
+                    "Tabela carregada com sucesso."
+                );
+
+                console.log(
+                    "Quantidade de registros:",
+                    linhas.length
+                );
+
+            }
+        );
+
     </script>
-  </body>
+
+
+</body>
+
 </html>
