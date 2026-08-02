@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Condomínio Vereda Tropical</title>
+
+    <link rel="stylesheet" href="/../../styles.css" />
+  </head>
+
+  <body>
+    <main class="containeri">
+      <!-- ================================================
+             MENU
+        ================================================= -->
+
+      <header class="menu">
+
+        <button class="menu-item" url="/www/2026-07/entrada.html" >
+        Extrato de Entradas
+        </button>
+        <button class="menu-item" url="/www/2026-07/saida.html" >
+          Extrato de Saídas
+        </button>
+
+      </header>
+
+      <!-- ================================================
+             BALANCETES
+        ================================================= -->
+
+
+        <iframe id="iframe" src="/www/2026-07/entrada.html"   frameborder="0"></iframe>
+
+
+
+
+    </main>
+
+    <!-- ====================================================
+         JAVASCRIPT PURO
+    ===================================================== -->
+
+    <script>
+      document.querySelector(".menu").addEventListener("click", function (e) {
+        e.preventDefault();
+        const iframe = document.getElementById("iframe");
+        iframe.src = e.target.getAttribute("url") ;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,444 @@
+/* ==================================================
+           RESET
+        ================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+
+}
+
+
+/* ==================================================
+           BODY
+        ================================================== */
+
+body {
+    width: 100%;
+    height: 200vh;
+
+    background: #eeeeee;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    text-align: center;
+    color: #000000;
+
+
+
+}
+
+
+/* ==================================================
+           CONTAINER PRINCIPAL
+        ================================================== */
+
+.container {
+    margin: 0 auto;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+
+}
+
+
+/* ==================================================
+           TÍTULO
+        ================================================== */
+
+.titulo {
+
+    width: 100%;
+
+    background: #000000;
+
+    color: #ffffff;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    border:
+        3px solid #333333;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+.titulo h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+
+.titulo p {
+
+    font-size: 14px;
+
+    color: #cccccc;
+}
+
+
+/* ==================================================
+           GRID DE INFORMAÇÕES
+        ================================================== */
+
+.informacoes {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,
+            minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.card {
+
+    background: #ffffff;
+
+    border:
+        2px solid #333333;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+
+.card span {
+
+    display: block;
+
+    color: #555555;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+
+.card strong {
+
+    color: #000000;
+
+    font-size: 22px;
+}
+
+
+/* ==================================================
+           ÁREA DA TABELA
+        ================================================== */
+
+.tabela-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: #ffffff;
+
+    padding: 15px;
+
+    border:
+        3px solid #222222;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==================================================
+           TABELA
+        ================================================== */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+
+    border:
+        2px solid #000000;
+}
+
+
+/* ==================================================
+           CABEÇALHO
+        ================================================== */
+
+thead th {
+
+    background: #000000;
+
+    color: #ffffff;
+
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    border:
+        1px solid #555555;
+}
+
+
+/* ==================================================
+           LINHAS
+        ================================================== */
+
+tbody tr {
+
+    background: #ffffff;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+/* Linhas alternadas */
+
+tbody tr:nth-child(even) {
+
+    background: #eeeeee;
+}
+
+
+/* Efeito ao passar o mouse */
+
+tbody tr:hover {
+
+    background: #cccccc;
+}
+
+
+/* ==================================================
+           CÉLULAS
+        ================================================== */
+
+tbody td {
+
+    padding: 13px;
+
+    /*
+             * Texto branco conforme solicitado
+             */
+
+    color: #000000;
+
+    border:
+        1px solid #999999;
+}
+
+
+/* ==================================================
+           VALOR
+        ================================================== */
+
+td.valor {
+
+    text-align: right;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+           LINHA TOTAL
+        ================================================== */
+
+tfoot tr {
+
+    background: #000000;
+}
+
+
+tfoot td {
+
+    padding: 16px;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    border:
+        1px solid #555555;
+}
+
+
+tfoot td:last-child {
+
+    text-align: right;
+
+    font-size: 18px;
+}
+
+
+/* ==================================================
+           RESPONSIVIDADE
+        ================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+
+        padding: 15px;
+
+        align-items: flex-start;
+    }
+
+
+    .informacoes {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .titulo h1 {
+
+        font-size: 22px;
+    }
+
+
+    table {
+
+        min-width: 650px;
+    }
+}
+
+/* ==================================================
+           BALANCETES
+        ================================================== */
+
+.balancetes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.balancete {
+    margin: auto;
+    width: 100%;
+
+    background: #000000;
+
+    color: #ffffff;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    border:
+        3px solid #333333;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.balancete:hover {
+    background: #333333;
+    font-weight: bold;
+
+}
+
+.balancete a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.balancete span {
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    width: 100%;
+
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.menu-item {
+    display: inline-block;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+iframe {
+    margin: 0 auto;
+    margin-top: 20px;
+    border: none;
+    width: 100%;
+    height: 200vh;
+
+    flex: 1;
+}
+
+.containeri {
+    margin: 0 auto;
+
+    width: 100%;
+    min-height: 200vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+
+}

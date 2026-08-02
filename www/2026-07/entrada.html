@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Extrato de Entradas</title>
+
+    <style>
+      /* ==================================================
+           RESET
+        ================================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* ==================================================
+           BODY
+        ================================================== */
+
+      body {
+        background: #eeeeee;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+
+      }
+
+      /* ==================================================
+           CONTAINER PRINCIPAL
+        ================================================== */
+
+      .container {
+        width: 100%;
+
+        max-width: 1100px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+      }
+
+      /* ==================================================
+           TÍTULO
+        ================================================== */
+
+      .titulo {
+        background: #000000;
+
+        color: #ffffff;
+
+        padding: 20px;
+
+        text-align: center;
+
+        border-radius: 10px;
+
+        border: 3px solid #333333;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+      }
+
+      .titulo h1 {
+        font-size: 28px;
+
+        margin-bottom: 8px;
+      }
+
+      .titulo p {
+        font-size: 14px;
+
+        color: #cccccc;
+      }
+
+      /* ==================================================
+           GRID DE INFORMAÇÕES
+        ================================================== */
+
+      .informacoes {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+      }
+
+      .card {
+        background: #ffffff;
+
+        border: 2px solid #333333;
+
+        border-radius: 8px;
+
+        padding: 20px;
+
+        text-align: center;
+      }
+
+      .card span {
+        display: block;
+
+        color: #555555;
+
+        font-size: 14px;
+
+        margin-bottom: 8px;
+      }
+
+      .card strong {
+        color: #000000;
+
+        font-size: 22px;
+      }
+
+      /* ==================================================
+           ÁREA DA TABELA
+        ================================================== */
+
+      .tabela-container {
+        width: 100%;
+
+        overflow-x: auto;
+
+        background: #ffffff;
+
+        padding: 15px;
+
+        border: 3px solid #222222;
+
+        border-radius: 10px;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==================================================
+           TABELA
+        ================================================== */
+
+      table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        background: #ffffff;
+
+        border: 2px solid #000000;
+      }
+
+      /* ==================================================
+           CABEÇALHO
+        ================================================== */
+
+      thead th {
+        background: #000000;
+
+        color: #ffffff;
+
+        padding: 15px;
+
+        text-align: left;
+
+        font-size: 15px;
+
+        border: 1px solid #555555;
+      }
+
+      /* ==================================================
+           LINHAS
+        ================================================== */
+
+      tbody tr {
+        background: #ffffff;
+
+        transition: background 0.2s ease;
+      }
+
+      /* Linhas alternadas */
+
+      tbody tr:nth-child(even) {
+        background: #eeeeee;
+      }
+
+      /* Efeito ao passar o mouse */
+
+      tbody tr:hover {
+        background: #cccccc;
+      }
+
+      /* ==================================================
+           CÉLULAS
+        ================================================== */
+
+      tbody td {
+        padding: 13px;
+
+        /*
+             * Texto branco conforme solicitado
+             */
+
+        color: #000000;
+
+        border: 1px solid #999999;
+      }
+
+      /* ==================================================
+           VALOR
+        ================================================== */
+
+      td.valor {
+        text-align: right;
+
+        font-weight: bold;
+
+        white-space: nowrap;
+      }
+
+      /* ==================================================
+           LINHA TOTAL
+        ================================================== */
+
+      tfoot tr {
+        background: #000000;
+      }
+
+      tfoot td {
+        padding: 16px;
+
+        color: #ffffff;
+
+        font-weight: bold;
+
+        border: 1px solid #555555;
+      }
+
+      tfoot td:last-child {
+        text-align: right;
+
+        font-size: 18px;
+      }
+
+      /* ==================================================
+           RESPONSIVIDADE
+        ================================================== */
+
+      @media (max-width: 700px) {
+        body {
+          padding: 15px;
+
+          align-items: flex-start;
+        }
+
+        .informacoes {
+          grid-template-columns: 1fr;
+        }
+
+        .titulo h1 {
+          font-size: 22px;
+        }
+
+        table {
+          min-width: 650px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- ================================================
+             TÍTULO
+        ================================================= -->
+
+      <header class="titulo">
+        <h1>
+          Extrato de Entradas
+
+          <hr />
+          Período de 1 a 31 do mês julho de 2026
+        </h1>
+      </header>
+
+      <!-- ================================================
+             INFORMAÇÕES
+        ================================================= -->
+
+      <section class="informacoes">
+        <div class="card">
+          <span> Quantidade de entradas </span>
+
+          <strong> 5 </strong>
+        </div>
+
+        <div class="card">
+          <span> Total das entradas </span>
+
+          <strong> R$ 6.724,52 </strong>
+        </div>
+      </section>
+
+      <!-- ================================================
+             TABELA
+        ================================================= -->
+
+      <section class="tabela-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+
+              <th>Descrição</th>
+
+              <th>Valor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>07/07/2026</td>
+
+              <td>LIQ.COBRANCA SIMPLES COB000002</td>
+
+              <td class="valor">R$ 1.447,57</td>
+            </tr>
+
+            <tr>
+              <td>09/07/2026</td>
+
+              <td>LIQ.COBRANCA SIMPLES COB000001</td>
+
+              <td class="valor">R$ 838,20</td>
+            </tr>
+
+            <tr>
+              <td>10/07/2026</td>
+
+              <td>LIQ.COBRANCA SIMPLES COB000001</td>
+
+              <td class="valor">R$ 730,83</td>
+            </tr>
+
+            <tr>
+              <td>13/07/2026</td>
+
+              <td>LIQ.COBRANCA SIMPLES COB000005</td>
+
+              <td class="valor">R$ 3.501,92</td>
+            </tr>
+
+            <tr>
+              <td>13/07/2026</td>
+
+              <td>RECEBIMENTO PIX 87933446949 MARCILENE MONTANHA L PIX_CRED</td>
+
+              <td class="valor">R$ 206,00</td>
+            </tr>
+          </tbody>
+
+          <!-- ========================================
+                     TOTAL
+                ========================================= -->
+
+          <tfoot>
+            <tr>
+              <td colspan="2">TOTAL DAS ENTRADAS</td>
+
+              <td>R$ 6.724,52</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <!-- ====================================================
+         JAVASCRIPT PURO
+    ===================================================== -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabela = document.querySelector("table");
+
+        const linhas = tabela.querySelectorAll("tbody tr");
+
+        console.log("Tabela carregada com sucesso.");
+
+        console.log("Quantidade de registros:", linhas.length);
+      });
+    </script>
+  </body>
+</html>
