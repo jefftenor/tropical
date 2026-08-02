@@ -1,629 +1,1598 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
 
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Extrato de Saídas</title>
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+
+    <title>
+
+        Extrato de Saídas
+
+
+    </title>
+
 
     <style>
-      /* ================================================
+
+
+        /* ================================================
            RESET
         ================================================= */
 
-      * {
-        box-sizing: border-box;
+        * {
 
-        margin: 0;
+            box-sizing:
+                border-box;
 
-        padding: 0;
-      }
+            margin:
+                0;
 
-      /* ================================================
+            padding:
+                0;
+
+        }
+
+
+        /* ================================================
            BODY
         ================================================= */
 
-      body {
-        background: #f2f2f2;
+        body {
 
-        font-family: Arial, Helvetica, sans-serif;
+     
 
-        color: #000;
+            background:
+                #f2f2f2;
 
-        display: flex;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-        justify-content: center;
+            color:
+                #000;
 
-        align-items: flex-start;
-      }
+            display:
+                flex;
 
-      /* ================================================
+            justify-content:
+                center;
+
+            align-items:
+                flex-start;
+
+
+
+        }
+
+
+        /* ================================================
            CONTAINER
         ================================================= */
 
-      .container {
-        width: 100%;
+        .container {
+
+            width:
+                100%;
 
 
 
-        display: grid;
+            display:
+                grid;
 
-        grid-template-columns: 1fr;
+            grid-template-columns:
+                1fr;
 
-        gap: 20px;
-      }
+            gap:
+                20px;
 
-      /* ================================================
+        }
+
+
+        /* ================================================
            TÍTULO
         ================================================= */
 
-      .titulo {
-        background: #000;
+        .titulo {
 
-        color: #fff;
+            background:
+                #000;
 
-        padding: 20px;
+            color:
+                #fff;
 
-        border-radius: 10px;
+            padding:
+                20px;
 
-        text-align: center;
+            border-radius:
+                10px;
 
-        border: 2px solid #000;
-      }
+            text-align:
+                center;
 
-      .titulo h1 {
-        font-size: 24px;
+            border:
+                2px solid #000;
 
-        margin-bottom: 8px;
-      }
+        }
 
-      .titulo p {
-        font-size: 14px;
-      }
 
-      /* ================================================
+        .titulo h1 {
+
+            font-size:
+                24px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .titulo p {
+
+            font-size:
+                14px;
+
+        }
+
+        
+        /* ==================================================
+           GRID DE INFORMAÇÕES
+        ================================================== */
+
+        .informacoes {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+
+        .card {
+
+            background: #ffffff;
+
+            border:
+                2px solid #333333;
+
+            border-radius: 8px;
+
+            padding: 20px;
+
+            text-align: center;
+        }
+
+
+        .card span {
+
+            display: block;
+
+            color: #555555;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .card strong {
+
+            color: #000000;
+
+            font-size: 22px;
+        }
+
+
+
+        /* ================================================
            CONTAINER DA TABELA
         ================================================= */
 
-      .tabela-container {
-        width: 100%;
+        .tabela-container {
 
-        background: #fff;
+            width:
+                100%;
 
-        border: 2px solid #000;
+            background:
+                #fff;
 
-        border-radius: 10px;
+            border:
+                2px solid #000;
 
-        overflow-x: auto;
+            border-radius:
+                10px;
 
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
+            overflow-x:
+                auto;
 
-      /* ================================================
+            box-shadow:
+                0 4px 12px
+                rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* ================================================
            TABELA
         ================================================= */
 
-      table {
-        width: 100%;
+        table {
 
-        border-collapse: collapse;
+            width:
+                100%;
 
-        background: #fff;
+            border-collapse:
+                collapse;
 
-        color: #000;
-      }
+            background:
+                #fff;
 
-      /* ================================================
+            color:
+                #000;
+
+        }
+
+
+        /* ================================================
            CABEÇALHO
         ================================================= */
 
-      thead {
-        background: #000;
+        thead {
 
-        color: #fff;
-      }
+            background:
+                #000;
 
-      th {
-        padding: 14px;
+            color:
+                #fff;
 
-        text-align: left;
+        }
 
-        border: 1px solid #333;
 
-        white-space: nowrap;
-      }
+        th {
 
-      /* ================================================
+            padding:
+                14px;
+
+            text-align:
+                left;
+
+            border:
+                1px solid #333;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        /* ================================================
            CÉLULAS
         ================================================= */
 
-      td {
-        padding: 12px;
+        td {
 
-        border: 1px solid #ccc;
+            padding:
+                12px;
 
-        background: #fff;
-      }
+            border:
+                1px solid #ccc;
 
-      /* ================================================
+            background:
+                #fff;
+
+        }
+
+
+        /* ================================================
            LINHAS ALTERNADAS
         ================================================= */
 
-      tbody tr:nth-child(even) td {
-        background: #eeeeee;
-      }
+        tbody tr:nth-child(even) td {
 
-      /* ================================================
+            background:
+                #eeeeee;
+
+        }
+
+
+        /* ================================================
            EFEITO MOUSE
         ================================================= */
 
-      tbody tr:hover td {
-        background: #dddddd;
-      }
+        tbody tr:hover td {
 
-      /* ================================================
+            background:
+                #dddddd;
+
+        }
+
+
+        /* ================================================
            DESCRIÇÃO
         ================================================= */
 
-      .descricao {
-        min-width: 300px;
-      }
+        .descricao {
 
-      /* ================================================
+            min-width:
+                300px;
+
+        }
+
+
+        /* ================================================
            VALOR
         ================================================= */
 
-      .valor {
-        text-align: right;
+        .valor {
 
-        font-weight: bold;
+            text-align:
+                right;
 
-        white-space: nowrap;
-      }
+            font-weight:
+                bold;
 
-      /* ================================================
+            white-space:
+                nowrap;
+
+        }
+
+
+        /* ================================================
            AÇÃO
         ================================================= */
 
-      .acao {
-        text-align: center;
+        .acao {
 
-        white-space: nowrap;
-      }
+            text-align:
+                center;
 
-      /* ================================================
+            white-space:
+                nowrap;
+
+        }
+
+
+        /* ================================================
            BOTÃO PDF
         ================================================= */
 
-      .btn-pdf {
-        background: #000;
+        .btn-pdf {
 
-        color: #fff;
+            background:
+                #000;
 
-        border: 1px solid #000;
+            color:
+                #fff;
 
-        padding: 8px 14px;
+            border:
+                1px solid #000;
 
-        border-radius: 5px;
+            padding:
+                8px 14px;
 
-        cursor: pointer;
+            border-radius:
+                5px;
 
-        font-size: 14px;
-      }
+            cursor:
+                pointer;
 
-      .btn-pdf:hover {
-        background: #333;
-      }
+            font-size:
+                14px;
 
-      /* ================================================
+        }
+
+
+        .btn-pdf:hover {
+
+            background:
+                #333;
+
+        }
+
+
+        /* ================================================
            PDF BLOQUEADO
         ================================================= */
 
-      .sem-pdf {
-        color: #777;
+        .sem-pdf {
 
-        font-size: 13px;
-      }
+            color:
+                #777;
 
-      /* ================================================
+            font-size:
+                13px;
+
+        }
+
+
+        /* ================================================
            TOTAL
         ================================================= */
 
-      .total td {
-        background: #000 !important;
+        .total td {
 
-        color: #fff;
+            background:
+                #000 !important;
 
-        font-weight: bold;
+            color:
+                #fff;
 
-        font-size: 16px;
+            font-weight:
+                bold;
 
-        padding: 16px;
-      }
+            font-size:
+                16px;
 
-      .total-label {
-        text-align: right;
-      }
+            padding:
+                16px;
 
-      .total-valor {
-        text-align: right;
+        }
 
-        white-space: nowrap;
-      }
 
-      /* ================================================
+        .total-label {
+
+            text-align:
+                right;
+
+        }
+
+
+        .total-valor {
+
+            text-align:
+                right;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        /* ================================================
            RESPONSIVIDADE
         ================================================= */
 
-      @media (max-width: 768px) {
-        body {
-          padding: 20px 10px;
+        @media (max-width: 768px) {
+
+            body {
+
+                padding:
+                    20px 10px;
+
+            }
+
+
+            .titulo h1 {
+
+                font-size:
+                    20px;
+
+            }
+
+
+            th,
+            td {
+
+                padding:
+                    9px;
+
+                font-size:
+                    13px;
+
+            }
+
         }
 
-        .titulo h1 {
-          font-size: 20px;
-        }
 
-        th,
-        td {
-          padding: 9px;
-
-          font-size: 13px;
-        }
-      }
     </style>
-  </head>
 
-  <body>
+
+</head>
+
+
+<body>
+
+
     <main class="container">
-      <!-- ============================================
+
+
+        <!-- ============================================
              TÍTULO
         ============================================= -->
 
-      <header class="titulo">
-        <h1>
-          Extrato de Saídas
-          <hr />
-          Período de 1 a 31 do mês julho de 2026
-        </h1>
-      </header>
+        <header class="titulo">
 
-      <!-- ============================================
+
+            <h1>
+
+                Extrato de Saídas
+                <hr>
+                Período de 1 a 31 do mês julho de 2026
+
+
+            </h1>
+
+
+   
+
+
+        </header>
+
+        
+        <!-- ================================================
+             INFORMAÇÕES
+        ================================================= -->
+
+        <section class="informacoes">
+
+            <div class="card">
+
+                <span>
+                    Quantidade de saídas
+                </span>
+
+                <strong>
+                    16
+                </strong>
+
+            </div>
+
+
+            <div class="card">
+
+                <span>
+                    Total das saídas
+                </span>
+
+                <strong>
+                    R$ R$ -5.252,80
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================================
              TABELA
         ============================================= -->
 
-      <section class="tabela-container">
-        <table>
-          <!-- ====================================
+        <section class="tabela-container">
+
+
+            <table>
+
+
+                <!-- ====================================
                      CABEÇALHO
                 ===================================== -->
 
-          <thead>
-            <tr>
-              <th>Nº</th>
+                <thead>
 
-              <th>Data</th>
 
-              <th>Descrição</th>
+                    <tr>
 
-              <th>Valor</th>
 
-              <th>Ação</th>
-            </tr>
-          </thead>
+                        <th>
 
-          <!-- ====================================
+                            Nº
+
+                        </th>
+
+
+                        <th>
+
+                            Data
+
+                        </th>
+
+
+                        <th>
+
+                            Descrição
+
+                        </th>
+
+
+
+
+                        <th>
+
+                            Valor
+
+                        </th>
+
+
+                        <th>
+
+                            Ação
+
+                        </th>
+
+
+                    </tr>
+
+
+                </thead>
+
+
+                <!-- ====================================
                      DADOS
                 ===================================== -->
 
-          <tbody>
-            <tr>
-              <td>1</td>
+                <tbody>
 
-              <td>20/07/2026</td>
 
-              <td class="descricao">
-                DEBITO ARRECADACAO 00394460005887 DARFC0385 DARFC0385
-              </td>
+                    
 
-              <td class="valor">R$ -292,59</td>
+    <tr>
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('1.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
+        <td>
 
-            <tr>
-              <td>2</td>
+            1
 
-              <td>20/07/2026</td>
+        </td>
 
-              <td class="descricao">
-                DEBITO CONVENIOS 04368898000106 COPEL DISTRIBUIC COPEL
-              </td>
 
-              <td class="valor">R$ -339,47</td>
+        <td>
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
+            20/07/2026
 
-            <tr>
-              <td>3</td>
+        </td>
 
-              <td>10/07/2026</td>
 
-              <td class="descricao">
-                DEBITO CONVENIOS 40432544000147 CLARSP11G CLARSP11G
-              </td>
+        <td class="descricao">
 
-              <td class="valor">R$ -81,26</td>
+            DEBITO ARRECADACAO 00394460005887 DARFC0385 DARFC0385
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('3.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
+        </td>
 
-            <tr>
-              <td>4</td>
 
-              <td>15/07/2026</td>
 
-              <td class="descricao">
-                DEBITO CONVENIOS 76484013000145 SANEPAR ID 06904 SANEPARF
-              </td>
 
-              <td class="valor">R$ -1.135,44</td>
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('4.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
+        <td class="valor">
 
-            <tr>
-              <td>5</td>
+            R$ -292,59
 
-              <td>30/07/2026</td>
+        </td>
 
-              <td class="descricao">
-                LIQUIDACAO BOLETO 00028986000108 ELEVADORES ATLA
-              </td>
 
-              <td class="valor">R$ -286,05</td>
+        <td class="acao">
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('5.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
+            
 
-            <tr>
-              <td>6</td>
+        <button
 
-              <td>10/07/2026</td>
+            class="btn-pdf"
 
-              <td class="descricao">
-                LIQUIDACAO BOLETO 10575551000137 ESCRITORIO CONT
-              </td>
+            onclick="abrirPDF('1.pdf')">
 
-              <td class="valor">R$ -656,50</td>
+            Abrir PDF
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('6.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
+        </button>
 
-            <tr>
-              <td>7</td>
+        
 
-              <td>10/07/2026</td>
+        </td>
 
-              <td class="descricao">
-                LIQUIDACAO BOLETO 30269348000140 LIDERE SERVICOS
-              </td>
+    </tr>
 
-              <td class="valor">R$ -638,40</td>
+    
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('7.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
 
-            <tr>
-              <td>8</td>
+    <tr>
 
-              <td>03/07/2026</td>
+        <td>
 
-              <td class="descricao">
-                LIQUIDACAO BOLETO 78376472000130 SINDICATO DAS E
-              </td>
+            2
 
-              <td class="valor">R$ -206,00</td>
+        </td>
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
 
-            <tr>
-              <td>9</td>
+        <td>
 
-              <td>30/07/2026</td>
+            20/07/2026
 
-              <td class="descricao">
-                LIQUIDACAO BOLETO 78376472000130 SINDICATO DAS E
-              </td>
+        </td>
 
-              <td class="valor">R$ -86,65</td>
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
+        <td class="descricao">
 
-            <tr>
-              <td>10</td>
+            DEBITO CONVENIOS 04368898000106 COPEL DISTRIBUIC COPEL
 
-              <td>10/07/2026</td>
+        </td>
 
-              <td class="descricao">
-                LIQUIDACAO BOLETO 78470705000160 ARTGAZ COMERCIO
-              </td>
 
-              <td class="valor">R$ -683,56</td>
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('10.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
 
-            <tr>
-              <td>11</td>
 
-              <td>03/07/2026</td>
+        <td class="valor">
 
-              <td class="descricao">
-                PAGAMENTO PIX 87933446949 MARCILENE MONTANHA LOT PIX_DEB
-              </td>
+            R$ -339,47
 
-              <td class="valor">R$ -800,00</td>
+        </td>
 
-              <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('11.pdf')">
-                  Abrir PDF
-                </button>
-              </td>
-            </tr>
 
-            <tr>
-              <td>12</td>
+        <td class="acao">
 
-              <td>10/07/2026</td>
+            
 
-              <td class="descricao">TARIFA CESTA DE RELACIONAMENTO</td>
+        <span class="sem-pdf">
 
-              <td class="valor">R$ -19,25</td>
+            PDF não disponível
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
+        </span>
 
-            <tr>
-              <td>13</td>
+        
 
-              <td>08/07/2026</td>
+        </td>
 
-              <td class="descricao">TARIFA COM R LIQUIDACAO COB000001</td>
+    </tr>
 
-              <td class="valor">R$ -3,07</td>
+    
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
 
-            <tr>
-              <td>14</td>
+    <tr>
 
-              <td>09/07/2026</td>
+        <td>
 
-              <td class="descricao">TARIFA COM R LIQUIDACAO COB000001</td>
+            3
 
-              <td class="valor">R$ -3,07</td>
+        </td>
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
 
-            <tr>
-              <td>15</td>
+        <td>
 
-              <td>06/07/2026</td>
+            10/07/2026
 
-              <td class="descricao">TARIFA COM R LIQUIDACAO COB000002</td>
+        </td>
 
-              <td class="valor">R$ -6,14</td>
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
+        <td class="descricao">
 
-            <tr>
-              <td>16</td>
+            DEBITO CONVENIOS 40432544000147 CLARSP11G CLARSP11G
 
-              <td>10/07/2026</td>
+        </td>
 
-              <td class="descricao">TARIFA COM R LIQUIDACAO COB000005</td>
 
-              <td class="valor">R$ -15,35</td>
 
-              <td class="acao">
-                <span class="sem-pdf"> PDF não disponível </span>
-              </td>
-            </tr>
 
-            <!-- =================================
+
+        <td class="valor">
+
+            R$ -81,26
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('3.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            4
+
+        </td>
+
+
+        <td>
+
+            15/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            DEBITO CONVENIOS 76484013000145 SANEPAR ID 06904 SANEPARF
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -1.135,44
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('4.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            5
+
+        </td>
+
+
+        <td>
+
+            30/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            LIQUIDACAO BOLETO 00028986000108 ELEVADORES ATLA
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -286,05
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('5.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            6
+
+        </td>
+
+
+        <td>
+
+            10/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            LIQUIDACAO BOLETO 10575551000137 ESCRITORIO CONT
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -656,50
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('6.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            7
+
+        </td>
+
+
+        <td>
+
+            10/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            LIQUIDACAO BOLETO 30269348000140 LIDERE SERVICOS
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -638,40
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('7.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            8
+
+        </td>
+
+
+        <td>
+
+            03/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            LIQUIDACAO BOLETO 78376472000130 SINDICATO DAS E
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -206,00
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            9
+
+        </td>
+
+
+        <td>
+
+            30/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            LIQUIDACAO BOLETO 78376472000130 SINDICATO DAS E
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -86,65
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            10
+
+        </td>
+
+
+        <td>
+
+            10/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            LIQUIDACAO BOLETO 78470705000160 ARTGAZ COMERCIO
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -683,56
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('10.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            11
+
+        </td>
+
+
+        <td>
+
+            03/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            PAGAMENTO PIX 87933446949 MARCILENE MONTANHA LOT PIX_DEB
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -800,00
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <button
+
+            class="btn-pdf"
+
+            onclick="abrirPDF('11.pdf')">
+
+            Abrir PDF
+
+        </button>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            12
+
+        </td>
+
+
+        <td>
+
+            10/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            TARIFA CESTA DE RELACIONAMENTO
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -19,25
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            13
+
+        </td>
+
+
+        <td>
+
+            08/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            TARIFA COM R LIQUIDACAO COB000001
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -3,07
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            14
+
+        </td>
+
+
+        <td>
+
+            09/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            TARIFA COM R LIQUIDACAO COB000001
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -3,07
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            15
+
+        </td>
+
+
+        <td>
+
+            06/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            TARIFA COM R LIQUIDACAO COB000002
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -6,14
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+    <tr>
+
+        <td>
+
+            16
+
+        </td>
+
+
+        <td>
+
+            10/07/2026
+
+        </td>
+
+
+        <td class="descricao">
+
+            TARIFA COM R LIQUIDACAO COB000005
+
+        </td>
+
+
+
+
+
+        <td class="valor">
+
+            R$ -15,35
+
+        </td>
+
+
+        <td class="acao">
+
+            
+
+        <span class="sem-pdf">
+
+            PDF não disponível
+
+        </span>
+
+        
+
+        </td>
+
+    </tr>
+
+    
+
+
+                    <!-- =================================
                          TOTAL
                     ================================== -->
 
-            <tr class="total">
-              <td colspan="3" class="total-label">TOTAL DAS SAÍDAS</td>
+                    <tr class="total">
 
-              <td class="total-valor">R$ -5.252,80</td>
 
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+                        <td
+                            colspan="3"
+                            class="total-label">
+
+                            TOTAL DAS SAÍDAS
+
+                        </td>
+
+
+                        <td
+                            class="total-valor">
+
+                            R$ -5.252,80
+
+                        </td>
+
+
+                        <td></td>
+
+
+                    </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </section>
+
+
     </main>
+
 
     <!-- ================================================
          JAVASCRIPT
     ================================================= -->
 
+
     <script>
-      /**
-       * Abre o PDF correspondente
-       * ao número da linha.
-       *
-       * Exemplos:
-       *
-       * Linha 1 -> pdf/1.pdf
-       *
-       * Linha 2 -> pdf/2.pdf
-       *
-       * Linha 3 -> pdf/3.pdf
-       */
 
-      function abrirPDF(nomeArquivo) {
-        const caminhoPDF = "pdf/" + nomeArquivo;
 
-        window.open(
-          caminhoPDF,
+        /**
+         * Abre o PDF correspondente
+         * ao número da linha.
+         *
+         * Exemplos:
+         *
+         * Linha 1 -> pdf/1.pdf
+         *
+         * Linha 2 -> pdf/2.pdf
+         *
+         * Linha 3 -> pdf/3.pdf
+         */
 
-          "_blank",
-        );
-      }
+        function abrirPDF(nomeArquivo) {
+
+            const caminhoPDF =
+                "pdf/"
+                + nomeArquivo;
+
+
+            window.open(
+
+                caminhoPDF,
+
+                "_blank"
+
+            );
+
+        }
+
+
     </script>
-  </body>
+
+
+</body>
+
+
 </html>
+
