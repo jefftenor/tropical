@@ -754,7 +754,14 @@
               <td class="valor">R$ -200,00</td>
 
               <td class="acao">
-                <button class="btn-pdf" onclick="abrirPDF('https://drive.google.com/file/d/1NvBIKAM2av_Hj6J8xTEsikHNC2eNzp6w/view?usp=drive_link')">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1NvBIKAM2av_Hj6J8xTEsikHNC2eNzp6w/view?usp=drive_link',
+                    )
+                  "
+                >
                   Abrir PDF
                 </button>
               </td>
@@ -797,9 +804,7 @@
               <td class="valor">R$ -1.332,52</td>
 
               <td class="acao">
-              <td class="acao">
                 <span class="sem-pdf"> PDF não disponível </span>
-              </td>
               </td>
             </tr>
 
@@ -980,7 +985,7 @@
 
       function abrirPDF(nomeArquivo) {
         // const caminhoPDF = "./pdf/" + nomeArquivo;
-        const caminhoPDF =  nomeArquivo;
+        const caminhoPDF = nomeArquivo;
 
         window.open(
           caminhoPDF,
