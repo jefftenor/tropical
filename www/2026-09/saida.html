@@ -1036,7 +1036,7 @@
          JAVASCRIPT
     ================================================= -->
 
-    <script>
+  <script>
       /**
        * Abre o PDF correspondente
        * ao número da linha.
@@ -1051,14 +1051,68 @@
        */
 
       function abrirPDF(nomeArquivo) {
-        const caminhoPDF = "./pdf/" + nomeArquivo;
+        // const caminhoPDF = "./pdf/" + nomeArquivo;
+        const caminhoPDF = nomeArquivo;
 
-        window.open(
-          caminhoPDF,
+        baixarPdfDoDrive(caminhoPDF); 
 
-          "_blank",
-        );
+        // window.locatKion.href = caminhoPDF;
+
+        // window.open(
+        //   caminhoPDF
+        // );
       }
-    </script>
+
+    // Extraia o ID a partir do link de compartilhamento
+    function extrairIdDoDrive(url) {
+      // Funciona com formatos como:
+      // https://drive.google.com/file/d/ID_DO_ARQUIVO/view?usp=sharing
+      const correspondencia = url.match(/\/d\/([-\w]{25,})/);
+      if (!correspondencia) {
+        throw new Error('Link do Drive inválido. Verifique o formato.');
+      }
+      return correspondencia[1];
+    }
+
+    // Para arquivo PDF que JÁ ESTÁ no Drive
+    function baixarPdfDoDrive(linkCompartilhado) {
+      const id = extrairIdDoDrive(linkCompartilhado);
+      const urlDownload = `https://drive.google.com/uc?export=download&id=${id}`;
+      // 'https://drive.google.com/file/d/1Kf4OMwPz_hVG-ae0TuXXo_6s9UXBjSQd/view?usp=drive_link'
+
+      const link = document.createElement('a');
+      link.href = urlDownload;
+      link.target = '_blank'; // necessário: navega até o Google, que dispara o download
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    // Para arquivo Google Docs (exporta como PDF)
+    function baixarGoogleDocsComoPdf(linkCompartilhado) {
+      const id = extrairIdDoDrive(linkCompartilhado);
+      const urlDownload = `https://docs.google.com/document/d/${id}/export?format=pdf`;
+
+      const link = document.createElement('a');
+      link.href = urlDownload;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    // document.getElementById('btnBaixar').addEventListener('click', () => {
+    // //   const meuLink = 'https://drive.google.com/file/d/1AbCDeFgHiJkLmNoPqRsTuVwXyZ/view?usp=sharing';
+    //   const meuLink ='https://drive.google.com/file/d/1Kf4OMwPz_hVG-ae0TuXXo_6s9UXBjSQd/view?usp=drive_link';
+
+    //   try {
+    //     baixarPdfDoDrive(meuLink);       // arquivo PDF no Drive
+    //     // baixarGoogleDocsComoPdf(meuLink); // se for Google Docs
+    //   } catch (erro) {
+    //     console.error(erro.message);
+    //   }
+    // });
+
+  </script>
   </body>
 </html>
