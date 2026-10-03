@@ -1,1 +1,1208 @@
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Extrato de Saídas</title>
+
+    <style>
+      /* ================================================
+           RESET
+        ================================================= */
+
+      * {
+        box-sizing: border-box;
+
+        margin: 0;
+
+        padding: 0;
+      }
+
+      /* ================================================
+           BODY
+        ================================================= */
+
+      body {
+        background: #f2f2f2;
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        color: #000;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-start;
+      }
+
+      /* ================================================
+           CONTAINER
+        ================================================= */
+
+      .container {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+      }
+
+      /* ================================================
+           TÍTULO
+        ================================================= */
+
+      .titulo {
+        background: #000;
+
+        color: #fff;
+
+        padding: 20px;
+
+        border-radius: 10px;
+
+        text-align: center;
+
+        border: 2px solid #000;
+      }
+
+      .titulo {
+        background: #000000;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        border: 3px solid #333333;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+      }
+
+      .titulo h1 {
+        font-size: 24px;
+
+        margin-bottom: 8px;
+      }
+
+      .titulo h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      .titulo p {
+        font-size: 14px;
+      }
+
+      /* ==================================================
+           GRID DE INFORMAÇÕES
+        ================================================== */
+
+      .informacoes {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+      }
+
+      .card {
+        background: #ffffff;
+
+        border: 2px solid #333333;
+
+        border-radius: 8px;
+
+        padding: 20px;
+
+        text-align: center;
+      }
+
+      .card span {
+        display: block;
+
+        color: #555555;
+
+        font-size: 14px;
+
+        margin-bottom: 8px;
+      }
+
+      .card strong {
+        color: #000000;
+
+        font-size: 22px;
+      }
+
+      /* ================================================
+           CONTAINER DA TABELA
+        ================================================= */
+
+      .tabela-container {
+        width: 100%;
+
+        background: #fff;
+
+        border: 2px solid #000;
+
+        border-radius: 10px;
+
+        overflow-x: auto;
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ================================================
+           TABELA
+        ================================================= */
+
+      table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        background: #fff;
+
+        color: #000;
+      }
+
+      /* ================================================
+           CABEÇALHO
+        ================================================= */
+
+      thead {
+        background: #000;
+
+        color: #fff;
+      }
+
+      th {
+        padding: 14px;
+
+        text-align: left;
+
+        border: 1px solid #333;
+
+        white-space: nowrap;
+      }
+
+      /* ================================================
+           CÉLULAS
+        ================================================= */
+
+      td {
+        padding: 12px;
+
+        border: 1px solid #ccc;
+
+        background: #fff;
+      }
+
+      /* ================================================
+           LINHAS ALTERNADAS
+        ================================================= */
+
+      tbody tr:nth-child(even) td {
+        background: #eeeeee;
+      }
+
+      /* ================================================
+           EFEITO MOUSE
+        ================================================= */
+
+      tbody tr:hover td {
+        background: #dddddd;
+      }
+
+      /* ================================================
+           DESCRIÇÃO
+        ================================================= */
+
+      .descricao {
+        min-width: 300px;
+      }
+
+      /* ================================================
+           VALOR
+        ================================================= */
+
+      .valor {
+        text-align: right;
+
+        font-weight: bold;
+
+        white-space: nowrap;
+      }
+
+      /* ================================================
+           AÇÃO
+        ================================================= */
+
+      .acao {
+        text-align: center;
+
+        white-space: nowrap;
+      }
+
+      /* ================================================
+           BOTÃO PDF
+        ================================================= */
+
+      .btn-pdf {
+        background: #000;
+
+        color: #fff;
+
+        border: 1px solid #000;
+
+        padding: 8px 14px;
+
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        font-size: 14px;
+      }
+
+      .btn-pdf:hover {
+        background: #333;
+      }
+
+      /* ================================================
+           PDF BLOQUEADO
+        ================================================= */
+
+      .sem-pdf {
+        color: #777;
+
+        font-size: 13px;
+      }
+
+      /* ================================================
+           TOTAL
+        ================================================= */
+
+      .total td {
+        background: #000 !important;
+
+        color: #fff;
+
+        font-weight: bold;
+
+        font-size: 16px;
+
+        padding: 16px;
+      }
+
+      .total-label {
+        text-align: right;
+      }
+
+      .total-valor {
+        text-align: right;
+
+        white-space: nowrap;
+      }
+
+      /* ================================================
+           RESPONSIVIDADE
+        ================================================= */
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px 10px;
+        }
+
+        .titulo h1 {
+          font-size: 20px;
+        }
+
+        th,
+        td {
+          padding: 9px;
+
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- ============================================
+             TÍTULO
+        ============================================= -->
+
+      <header class="titulo">
+        <h1>
+          Extrato de Saídas
+          <hr />
+          Período do mês setembro de 2026
+        </h1>
+      </header>
+
+      <!-- ================================================
+             INFORMAÇÕES
+        ================================================= -->
+
+      <section class="informacoes">
+        <div class="card">
+          <span> Quantidade de saídas </span>
+
+          <strong> 30 </strong>
+        </div>
+
+        <div class="card">
+          <span> Total das saídas </span>
+
+          <strong> R$ -11.581,50 </strong>
+        </div>
+      </section>
+
+      <!-- ============================================
+             TABELA
+        ============================================= -->
+
+      <section class="tabela-container">
+        <table>
+          <!-- ====================================
+                     CABEÇALHO
+                ===================================== -->
+
+          <thead>
+            <tr>
+              <th>Nº</th>
+
+              <th>Data</th>
+
+              <th>Descrição</th>
+
+              <th>Valor</th>
+
+              <th>DOC</th>
+
+              <th>OBS</th>
+            </tr>
+          </thead>
+
+          <!-- ====================================
+                     DADOS
+                ===================================== -->
+
+          <tbody>
+            <tr>
+              <td>1</td>
+
+              <td>04/09/2026</td>
+
+              <td class="descricao">
+                PAGAMENTO PIX 53201701904 JOSE CARLOS SOBRAL
+              </td>
+
+              <td class="valor">R$ -55,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1nJKiGmXnNlnDwd1HpI3Nubh26ZId5lYi/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+
+              <td>04/09/2026</td>
+
+              <td class="descricao">TARIFA COM R LIQUIDACAO</td>
+
+              <td class="valor">R$ -3,07</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+
+              <td>08/09/2026</td>
+
+              <td class="descricao">TARIFA COM R LIQUIDACAO</td>
+
+              <td class="valor">R$ -3,07</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+
+              <td>08/09/2026</td>
+
+              <td class="descricao">TARIFA COM R LIQUIDACAO</td>
+
+              <td class="valor">R$ -3,07</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">MANUTENCAO DE TITULOS</td>
+
+              <td class="valor">R$ -2,99</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>6</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">CESTA DE RELACIONAMENTO</td>
+
+              <td class="valor">R$ -20,16</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>7</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 75771477000170 MUNICIPIO DE LO
+              </td>
+
+              <td class="valor">R$ -30,40</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1xweJR5Y5c2PoqhYuhZSWR1_-4VCjBQsv/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>8</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 10575551000137 ESCRITORIO CONT
+              </td>
+
+              <td class="valor">R$ -828,83</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1nn5VTGAFH30X6fCNVBFIRf9Qsui7ox9_/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>9</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 30269348000140 LIDERE SERVICOS
+              </td>
+
+              <td class="valor">R$ -599,26</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1iBpYxqTrTvSas0WepXKu-sowVZZAgT9Q/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>10</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 78470705000160 ARTGAZ COMERCIO
+              </td>
+
+              <td class="valor">R$ -493,99</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1pNPBiKKBm1SCr7lIXnCqjSdTA9MeulSn/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>11</td>
+
+              <td>10/09/2026</td>
+
+              <td class="descricao">TARIFA COM R LIQUIDACAO</td>
+
+              <td class="valor">R$ -18,42</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>12</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                DEBITO CONVENIOS 40432544000147 CLARSP11G
+              </td>
+
+              <td class="valor">R$ -79,72</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/18stHPZMbYgG1L1SwdCyABuadbgzKM-mu/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>13</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                PAGAMENTO PIX 09664173000189 ZIZO COPIAS
+              </td>
+
+              <td class="valor">R$ -109,80</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1FcAX38tV915zgv5wkScTy2ud-myf4Fvq/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>14</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 00028986000108 ELEVADORES ATLA
+              </td>
+
+              <td class="valor">R$ -286,05</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/19NRJScJSVXxpRIHdP9vcbb82diyj6Cnu/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>15</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 78634698000194 MATINCENDIO COM
+              </td>
+
+              <td class="valor">R$ -312,50</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1fHUag2f3Ew-28SQ-eRkE6XozplkXKiXf/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>16</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 00623581000118 MARCEL VINICIUS
+              </td>
+
+              <td class="valor">R$ -200,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/187j8NXthCiKWH6YRPeA-06Gyy9CbWz1q/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>17</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 00623581000118 MARCEL VINICIUS
+              </td>
+
+              <td class="valor">R$ -520,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1gQvJ19NKJ5vEO_bXMGD_AwH_tONvnMX8/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>18</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 43791891987 TERCIO BECCATI FIL
+              </td>
+
+              <td class="valor">R$ -200,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1NvBIKAM2av_Hj6J8xTEsikHNC2eNzp6w/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>19</td>
+
+              <td>11/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 78376472000130 SINDICATO DAS E
+              </td>
+
+              <td class="valor">R$ -86,65</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1DOTeAxLMJuhcrkTtv5iYETov1szVOTvC/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>20</td>
+
+              <td>15/09/2026</td>
+
+              <td class="descricao">
+                DEBITO CONVENIOS 76484013000145 SANEPAR ID 06904
+              </td>
+
+              <td class="valor">R$ -1.332,52</td>
+
+              <td class="acao">
+                <button class="btn-pdf" onclick="abrirPDF('20.pdf')">
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>21</td>
+
+              <td>18/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 33977962000154 Hg Solucoes
+              </td>
+
+              <td class="valor">R$ -260,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1wsDh6UKAUbZRlmL-dtjCCEO8JPGQo05W/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>22</td>
+
+              <td>18/09/2026</td>
+
+              <td class="descricao">
+                PAGAMENTO PIX 00394460005887 RECEITA FEDERAL
+              </td>
+
+              <td class="valor">R$ -376,19</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1O0cwb2tK6xl967Jm8AczM9JtmMklcXQp/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>23</td>
+
+              <td>21/09/2026</td>
+
+              <td class="descricao">
+                DEBITO CONVENIOS 04368898000106 COPEL DISTRIBUIC
+              </td>
+
+              <td class="valor">R$ -416,41</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>24</td>
+
+              <td>21/09/2026</td>
+
+              <td class="descricao">TARIFA COM R LIQUIDACAO</td>
+
+              <td class="valor">R$ -3,07</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>25</td>
+
+              <td>23/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 23105930000105 EDSON MARIGO
+              </td>
+
+              <td class="valor">R$ -350,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1zWRuaeXtCpXUjjtyC7nXdiOJnsKZhElD/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>26</td>
+
+              <td>23/09/2026</td>
+
+              <td class="descricao">
+                LIQUIDACAO BOLETO 23105930000105 EDSON MARIGO
+              </td>
+
+              <td class="valor">R$ -580,00</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1DR4Rmjh3IQtxkAx_MEfv6IqyS2Bc-8Kz/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>27</td>
+
+              <td>24/09/2026</td>
+
+              <td class="descricao">
+                PAGAMENTO PIX 50649311000154 FERREIRA PRODUTOS D
+              </td>
+
+              <td class="valor">R$ -67,80</td>
+
+              <td class="acao">
+                <button
+                  class="btn-pdf"
+                  onclick="
+                    abrirPDF(
+                      'https://drive.google.com/file/d/1_a2Oakf5YiJ2vCf4Pi13iam-xSd-36vh/view?usp=drive_link',
+                    )
+                  "
+                >
+                  Abrir PDF
+                </button>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>28</td>
+
+              <td>30/09/2026</td>
+
+              <td class="descricao">APLIC.FINANC.AVISO PREVIO</td>
+
+              <td class="valor">R$ -1.312,23</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>29</td>
+
+              <td>30/09/2026</td>
+
+              <td class="descricao">
+                DEB TRANSF CC/PP 80927791000139 EDIFICIO VEREDA
+              </td>
+
+              <td class="valor">R$ -1.000,00</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>30</td>
+
+              <td>30/09/2026</td>
+
+              <td class="descricao">APLIC.FINANC.AVISO PREVIO</td>
+
               <td class="valor">R$ -2.030,30</td>
+
+              <td class="acao">
+                <span class="sem-pdf"> &nbsp; </span>
+              </td>
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+
+            <!-- =================================
+                         TOTAL
+                    ================================== -->
+
+            <tr class="total">
+              <td colspan="3" class="total-label">TOTAL DAS SAÍDAS</td>
+
+              <td class="total-valor">R$ -11.581,50</td>
+
+              <td class="obs">
+                <span class="sem-obs"> &nbsp; </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- ================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script>
+      /**
+       * Abre o PDF correspondente
+       * ao número da linha.
+       *
+       * Exemplos:
+       *
+       * Linha 1 -> pdf/1.pdf
+       *
+       * Linha 2 -> pdf/2.pdf
+       *
+       * Linha 3 -> pdf/3.pdf
+       */
+
+      function abrirPDF(nomeArquivo) {
+        // const caminhoPDF = "./pdf/" + nomeArquivo;
+        const caminhoPDF = nomeArquivo;
+
+        baixarPdfDoDrive(caminhoPDF);
+
+        // window.locatKion.href = caminhoPDF;
+
+        // window.open(
+        //   caminhoPDF
+        // );
+      }
+
+      // Extraia o ID a partir do link de compartilhamento
+      function extrairIdDoDrive(url) {
+        // Funciona com formatos como:
+        // https://drive.google.com/file/d/ID_DO_ARQUIVO/view?usp=sharing
+        const correspondencia = url.match(/\/d\/([-\w]{25,})/);
+        if (!correspondencia) {
+          throw new Error("Link do Drive inválido. Verifique o formato.");
+        }
+        return correspondencia[1];
+      }
+
+      // Para arquivo PDF que JÁ ESTÁ no Drive
+      function baixarPdfDoDrive(linkCompartilhado) {
+        const id = extrairIdDoDrive(linkCompartilhado);
+        const urlDownload = `https://drive.google.com/uc?export=download&id=${id}`;
+        // 'https://drive.google.com/file/d/1Kf4OMwPz_hVG-ae0TuXXo_6s9UXBjSQd/view?usp=drive_link'
+
+        const link = document.createElement("a");
+        link.href = urlDownload;
+        link.target = "_blank"; // necessário: navega até o Google, que dispara o download
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+
+      // Para arquivo Google Docs (exporta como PDF)
+      function baixarGoogleDocsComoPdf(linkCompartilhado) {
+        const id = extrairIdDoDrive(linkCompartilhado);
+        const urlDownload = `https://docs.google.com/document/d/${id}/export?format=pdf`;
+
+        const link = document.createElement("a");
+        link.href = urlDownload;
+        link.target = "_blank";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+
+      // document.getElementById('btnBaixar').addEventListener('click', () => {
+      // //   const meuLink = 'https://drive.google.com/file/d/1AbCDeFgHiJkLmNoPqRsTuVwXyZ/view?usp=sharing';
+      //   const meuLink ='https://drive.google.com/file/d/1Kf4OMwPz_hVG-ae0TuXXo_6s9UXBjSQd/view?usp=drive_link';
+
+      //   try {
+      //     baixarPdfDoDrive(meuLink);       // arquivo PDF no Drive
+      //     // baixarGoogleDocsComoPdf(meuLink); // se for Google Docs
+      //   } catch (erro) {
+      //     console.error(erro.message);
+      //   }
+      // });
+    </script>
+  </body>
+</html>
