@@ -443,3 +443,26 @@ iframe {
 
 
 }
+
+.privacidade {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+    text-align: left;
+}
+
+.privacidade a {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.privacidade h1 {
+    text-align: center;
+    font-size: 24px;
+}
